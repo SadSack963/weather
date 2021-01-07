@@ -1,0 +1,53 @@
+# https://register.metoffice.gov.uk/MyAccountClient/account/view
+met_office_API_Key = "a3e7a65f-5243-4ae3-a759-bf0bc21ff8b1"
+met_office_base_url = "http://datapoint.metoffice.gov.uk/public/data/"
+# add to URL: "{resource}?key={APIkey}"
+
+# https://www.metoffice.gov.uk/services/data/datapoint/api-reference
+
+DataType: xml
+    Extensible Markup Language
+
+DataType: json
+    JavaScript Object Notation.
+
+Resource: val/wxfcs/all/datatype/sitelist
+    Returns a list of locations (also known as sites) for which results are available for the daily and three-hourly forecast data feeds. You can use this to find the ID of the site that you are interested in.
+
+Resource: val/wxfcs/all/datatype/capabilities
+    Returns the time steps available for the daily or three-hourly UK forecast data feed. You can use this data feed to check that the time step you are interested in is available before querying the relevant web service to get the data.
+
+Resource: val/wxfcs/all/datatype/locationId
+    Returns a forecast for the next five days including today. Forecast time steps are either daily (separate day and night), or every three-hours. Updated hourly.
+
+Resource: val/wxobs/all/datatype/sitelist
+    Returns a list of locations (also known as sites) for which results are available for the hourly observations data feed. You can use this to find the ID of the site that you are interested in.
+
+Resource: val/wxobs/all/datatype/capabilities
+    Returns a summary of available time steps for the UK observations data feed. You can use this data feed to check that the time step you are interested in is available before querying the relevant web service to get the data. Updated hourly.
+
+Resource: val/wxobs/all/datatype/locationId
+    Returns hourly weather observations for the last 24 hours. Updated hourly.
+
+Location ID: number
+    A numbered location ID e.g. Dunkeswell Aerodrome = 3840. The list of location IDs available for a datafeed can be fetched using the sitelist resource for that datafeed.
+
+Location ID: all
+    The location all can be used to fetch the data for all locations available in a datafeed. This will significantly increase the size of the returned data. Consider using the time query to restrict the data to a specific time step.
+
+================================================
+
+Parameters for resource val/wxfcs/all/datatype/locationId
+
+res:  Required
+    The temporal resolution of the data being requested. Either 3hourly or daily.
+
+key:  Required
+    Your DataPoint API key.
+
+time: Optional
+    Returns the forecast for only a single time step rather than all available time
+    steps. The time step must be one of the available time steps reported by the
+    capabilities resource and expressed according to the ISO 8601 combined date
+    and time convention. The time can be abbreviated e.g 2012-11-19T15:00:00Z
+    is identical to 2012-11-19T15Z.

@@ -1,0 +1,15 @@
+How do I get an API key?
+========================
+You get an API key as soon as you create your application to request the weather data. Follow these steps to create your application and obtain an API key:
+1. Log into your account
+2. Click the Apps link on the navigation menu and you will be directed to the Apps page
+3. Click Create new App
+4. Provide information for the fields in the Register application window
+5. Click Submit
+6. The client ID and client secret is automatically generated.
+7. Take note of the application client ID and client secret that you need to include for each web service request.
+8. The secret is shown at the top of the page. Click Verify in the app section and copy the secret into the box.
+9. Subscribe to an API, e.g. Global spot data bundle
+
+API Documentation:
+    https://metoffice.apiconnect.ibmcloud.com/metoffice/production/node/173
